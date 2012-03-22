@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import in.shick.diode.R;
 import in.shick.diode.common.Constants;
+import in.shick.diode.common.DelTagHandler;
 import in.shick.diode.common.util.Util;
 import in.shick.diode.markdown.Markdown;
 import in.shick.diode.things.ThingInfo;
@@ -122,7 +123,7 @@ public class ProcessCommentsTask extends AsyncTask<Void, Integer, Void> {
     		// fromHtml doesn't support all HTML tags. convert <code> and <pre>
     		bodyHtml = Util.convertHtmlTags(bodyHtml);
     		
-    		Spanned body = Html.fromHtml(bodyHtml);
+    		Spanned body = Html.fromHtml(bodyHtml, null, new DelTagHandler());
     		// remove last 2 newline characters
     		if (body.length() > 2)
     			return body.subSequence(0, body.length()-2);

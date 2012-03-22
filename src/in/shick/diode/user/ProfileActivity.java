@@ -79,6 +79,7 @@ import in.shick.diode.comments.CommentsListActivity;
 import in.shick.diode.common.CacheInfo;
 import in.shick.diode.common.Common;
 import in.shick.diode.common.Constants;
+import in.shick.diode.common.DelTagHandler;
 import in.shick.diode.common.FormValidation;
 import in.shick.diode.common.ProgressInputStream;
 import in.shick.diode.common.RedditIsFunHttpClientFactory;
@@ -719,7 +720,7 @@ public final class ProfileActivity extends ListActivity
 	   					ThingInfo ti = tiContainer.getData();
 	   					// HTML to Spanned
 	   					String unescapedHtmlBody = Html.fromHtml(ti.getBody_html()).toString();
-	   					Spanned body = Html.fromHtml(Util.convertHtmlTags(unescapedHtmlBody));
+	   					Spanned body = Html.fromHtml(Util.convertHtmlTags(unescapedHtmlBody), null, new DelTagHandler());
 	   					// remove last 2 newline characters
 	   					if (body.length() > 2)
 	   						ti.setSpannedBody(body.subSequence(0, body.length()-2));

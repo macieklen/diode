@@ -26,6 +26,7 @@ import in.shick.diode.comments.ProcessCommentsTask.DeferredCommentProcessing;
 import in.shick.diode.common.CacheInfo;
 import in.shick.diode.common.Common;
 import in.shick.diode.common.Constants;
+import in.shick.diode.common.DelTagHandler;
 import in.shick.diode.common.ProgressInputStream;
 import in.shick.diode.common.util.Assert;
 import in.shick.diode.common.util.StringUtils;
@@ -324,7 +325,7 @@ public class DownloadCommentsTask extends AsyncTask<Integer, Long, Boolean>
 		if (data.isIs_self() && data.getSelftext_html() != null) {
 			// HTML to Spanned
 			String unescapedHtmlSelftext = Html.fromHtml(data.getSelftext_html()).toString();
-			Spanned selftext = Html.fromHtml(Util.convertHtmlTags(unescapedHtmlSelftext));
+			Spanned selftext = Html.fromHtml(Util.convertHtmlTags(unescapedHtmlSelftext), null, new DelTagHandler());
 			
     		// remove last 2 newline characters
 			if (selftext.length() > 2)

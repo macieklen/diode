@@ -84,6 +84,7 @@ import in.shick.diode.R;
 import in.shick.diode.common.CacheInfo;
 import in.shick.diode.common.Common;
 import in.shick.diode.common.Constants;
+import in.shick.diode.common.DelTagHandler;
 import in.shick.diode.common.RedditIsFunHttpClientFactory;
 import in.shick.diode.common.tasks.HideTask;
 import in.shick.diode.common.tasks.SaveTask;
@@ -1954,7 +1955,7 @@ public class CommentsListActivity extends ListActivity
 							if (anchorText != null)
 								tv.setText(Html.fromHtml("<span>" + anchorText + "</span><br /><small>" + url + "</small>"));
 							else
-								tv.setText(Html.fromHtml(url));
+								tv.setText(Html.fromHtml(url, null, new DelTagHandler()));
 							
     	                    return tv;
     	                }
