@@ -2002,7 +2002,9 @@ public class CommentsListActivity extends ListActivity
         ImageView voteDownView = (ImageView) view.findViewById(R.id.vote_down_image);
         
         try {
-        	votesView.setText(Util.showNumPoints(item.getUps() - item.getDowns()));
+        	String pointsHtml = Util.showNumPoints(item.getUps() - item.getDowns());
+        	if (settings.isShowUpvotesAndDownvotes()) pointsHtml += " (<font color=\"#FF8B24\">" + item.getUps() + "</font>|<font color=\"#9494FF\">" + item.getDowns() + "</font>)";
+        	votesView.setText(Html.fromHtml(pointsHtml));
         } catch (NumberFormatException e) {
         	// This happens because "ups" comes after the potentially long "replies" object,
         	// so the ListView might try to display the View before "ups" in JSON has been parsed.

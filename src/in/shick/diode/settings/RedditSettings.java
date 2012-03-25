@@ -52,6 +52,7 @@ public class RedditSettings {
 	private String homepage = Constants.FRONTPAGE_STRING;
 	private boolean useExternalBrowser = false;
 	private boolean showCommentGuideLines = true;
+	private boolean showUpvotesAndDownvotes = false;
 	private boolean confirmQuitOrLogout = true;
 	private boolean saveHistory = true;
 	private boolean alwaysShowNextPrevious = true;
@@ -154,6 +155,9 @@ public class RedditSettings {
     	// Comment guide lines
     	editor.putBoolean(Constants.PREF_SHOW_COMMENT_GUIDE_LINES, this.showCommentGuideLines);
     	
+    	// Separate Upvote and Downvote scores
+    	editor.putBoolean(Constants.PREF_SHOW_UPVOTES_AND_DOWNVOTES, this.showUpvotesAndDownvotes);
+    	
     	// Rotation
     	editor.putString(Constants.PREF_ROTATION, RedditSettings.Rotation.toString(this.rotation));
     	
@@ -223,6 +227,9 @@ public class RedditSettings {
         
         // Comment guide lines
         this.setShowCommentGuideLines(sessionPrefs.getBoolean(Constants.PREF_SHOW_COMMENT_GUIDE_LINES, true));
+        
+        // Individual Upvote and Downvote counts
+        this.setShowUpvotesAndDownvotes(sessionPrefs.getBoolean(Constants.PREF_SHOW_UPVOTES_AND_DOWNVOTES, false));
         
         // Rotation
         this.setRotation(RedditSettings.Rotation.valueOf(
@@ -299,9 +306,17 @@ public class RedditSettings {
 	public boolean isShowCommentGuideLines() {
 		return showCommentGuideLines;
 	}
+	
+	public boolean isShowUpvotesAndDownvotes() {
+		return showUpvotesAndDownvotes;
+	}
 
 	public void setShowCommentGuideLines(boolean showCommentGuideLines) {
 		this.showCommentGuideLines = showCommentGuideLines;
+	}
+	
+	public void setShowUpvotesAndDownvotes(boolean showUpvotesAndDownvotes) {
+		this.showUpvotesAndDownvotes = showUpvotesAndDownvotes;
 	}
 
 	public boolean isConfirmQuitOrLogout() {

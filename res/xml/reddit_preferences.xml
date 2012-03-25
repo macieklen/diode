@@ -66,7 +66,7 @@
 			android:key="show_comment_guide_lines"
 			android:title="@string/pref_show_comment_guide_lines" />
 			
-		<CheckBoxPreference
+		<CheckBoxPreference android:key="show_upvotes_and_downvotes" android:title="@string/pref_show_upvotes_and_downvotes" /><CheckBoxPreference
 			android:key="always_show_next_previous"
 			android:title="@string/pref_always_show_next_previous" />
 
@@ -77,6 +77,7 @@
       		android:entries="@array/pref_rotation_choices"
       		android:entryValues="@array/pref_rotation_values"
       		android:dialogTitle="@string/pref_rotation_dialogtitle" />
+   		
         		
 	</PreferenceCategory>
 	

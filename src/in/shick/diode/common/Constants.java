@@ -293,6 +293,7 @@ public class Constants {
     public static final String PREF_TEXT_SIZE_LARGER = "TEXT_SIZE_LARGER";
     public static final String PREF_TEXT_SIZE_HUGE = "TEXT_SIZE_HUGE";
     public static final String PREF_SHOW_COMMENT_GUIDE_LINES = "show_comment_guide_lines";
+    public static final String PREF_SHOW_UPVOTES_AND_DOWNVOTES = "show_upvotes_and_downvotes";
     public static final String PREF_ROTATION = "rotation";
     public static final String PREF_ROTATION_UNSPECIFIED = "ROTATION_UNSPECIFIED";
     public static final String PREF_ROTATION_PORTRAIT = "ROTATION_PORTRAIT";
